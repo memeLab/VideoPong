@@ -1,29 +1,5 @@
-/* This is version 0.12 of VideoPong [5], made by VJ pixel (http://memelab.com.br) and Tiago Pimentel.
-
-   VideoPong is a version of Pong [1] in augmented reality.
-   
-   Based on the Pong code by Alex Mesker [2] and on sketches by Tiago Pimentel.
-   
-   This code is made for Processing [3] and is distributed under a Creative Commons Attribution license [4].
-   
-   Major changes since the last version:
-   - Updated and increased documentation of the code;
-   - Implemented end of game;
-   - Implemented Kinect input;
-   - Implementing sound;
-   - Modularized code in tabs;
-   - Invert cam (to mirror captured image);
-   - Improved input, changing the tracking columns to the first and last quarters of the image;
-   - Changed licence.
-   
-   Next steps:
-   - Clean code.
-   
-   [1] http://en.wikipedia.org/wiki/Pong
-   [2] http://www.x37v.com
-   [3] http://processing.org
-   [4] http://creativecommons.org/licenses/by/3.0/deed
-   [5] http://memelab.com.br/projeto/videopong
+/* This is version 0.13 of VideoPong [5], made by VJ pixel (http://memelab.com.br)
+   and Tiago Pimentel.
 */
 
 // Kinect

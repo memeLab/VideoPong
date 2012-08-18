@@ -1,0 +1,23 @@
+Version 0.13 (18 August 2012)
+------------------------------
+Changed licence to GPL.
+
+Goals:
+  Change Kinect library to Linux.
+  Clean Code.
+  Create different branches for: Kinect and camera.
+
+
+Version 0.12
+------------------------------
+Updated and increased documentation of the code.
+Implemented end of game.
+Implemented Kinect input.
+Implementing sound.
+Modularized code in tabs.
+Invert cam (to mirror captured image).
+Improved input, changing the tracking columns to the first and last quarters of the image.
+Changed licence.
+   
+Next steps:
+  Clean code.
