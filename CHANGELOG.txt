@@ -1,8 +1,21 @@
+Version 0.14 (27 October 2016)
+------------------------------
+Updated README.
+
+TODO:
+  Change Kinect library to Linux.
+  Clean Code.
+  Create different branches for: Kinect and camera.
+  Update code to work on Processing 3.
+  Make it easy to open in fullscreen.
+  Add shell script to open the software on boot.
+  
+
 Version 0.13 (18 August 2012)
 ------------------------------
 Changed licence to GPL.
 
-Goals:
+TODO:
   Change Kinect library to Linux.
   Clean Code.
   Create different branches for: Kinect and camera.
@@ -19,5 +32,5 @@ Invert cam (to mirror captured image).
 Improved input, changing the tracking columns to the first and last quarters of the image.
 Changed licence.
    
-Next steps:
+TODO:
   Clean code.
