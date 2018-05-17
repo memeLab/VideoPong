@@ -1,25 +1,30 @@
-/* This is version 0.13 of VideoPong [5], made by VJ pixel (http://memelab.com.br)
-   and Tiago Pimentel.
+
+/* This is version 0.15 of VideoPong, made by VJ pixel (http://memelab.com.br) and Tiago Pimentel.
 */
 
 // Kinect
-import org.openkinect.*;
+import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
+
 Kinect kinect;
 
-// using 'video'
-//import processing.video.*;
-//Capture cam;
+// Depth image
+PImage depthImg;
 
-// using 'gsvideo'
-//GSCapture cam;
-//import codeanticode.gsvideo.*;
+// Which pixels do we care about?
+int minDepth = 100;
+int maxDepth = 700;
+
+// What is the kinect's angle
+float angle;
 
 // audio
 import ddf.minim.*;
 AudioSample rSound, lSound;
 Minim minim;
 
+
+// Pong
 PFont scoreFont;
 PFont playerFont;  
 int xDirection = 1;
@@ -32,7 +37,7 @@ int paddleHeight = 60;
 int lPlayerScore = 0;
 int rPlayerScore = 0;
 float origSpeed = 6;
-float speed = origSpeed; // Speed of the ball.  This increments as the game plays, to make it move faster
+float speed = origSpeed; // Speed of the ball.  This increments as the game runs, to make it move faster
 float speedInc = origSpeed/10;
 float ySpeed = 0; // Start the ball completely flat.  Position of impact on the paddle will determine reflection angle.
 int paused = 1; // Enable pausing of the game.  Start paused
@@ -43,16 +48,19 @@ int end = 5;
 
 void setup() {
   size(640, 480);
+  //fullScreen(1);
   
   minim = new Minim(this);
   rSound = minim.loadSample("rSound.mp3");
   lSound = minim.loadSample("lSound.mp3");
   
   kinect = new Kinect(this);
-  kinect.start();
-  //cam = new Capture(this, width, height); // using 'video'
-  //cam = new GSCapture(this, width, height); // using 'gsvideo'
-  
+  kinect.initDepth();
+  angle = kinect.getTilt();
+
+  // Blank image
+  depthImg = new PImage(kinect.width, kinect.height);
+    
   smooth();
   noStroke();
   scoreFont = loadFont("AndaleMono-24.vlw"); // Score font
@@ -122,13 +130,32 @@ void mousePressed() {
   }
 }
 
+// Adjust the angle and the depth threshold min and max
 void keyPressed() {
-  if (paused == 1) {
-    paused = 0;
-    redraw();
-  } else if (paused == 0) {
-    paused = 1;
-    redraw();
+  if (key == CODED) {
+    if (keyCode == UP) {
+      angle++;
+    } else if (keyCode == DOWN) {
+      angle--;
+    } 
+    angle = constrain(angle, 0, 30);
+    kinect.setTilt(angle);
+  } else if (key == 'a') {
+    minDepth = constrain(minDepth+10, 0, maxDepth);
+  } else if (key == 's') {
+    minDepth = constrain(minDepth-10, 0, maxDepth);
+  } else if (key == 'z') {
+    maxDepth = constrain(maxDepth+10, minDepth, 2047);
+  } else if (key =='x') {
+    maxDepth = constrain(maxDepth-10, minDepth, 2047);
+  } else if (key == ' ' ) {
+      if (paused == 1) {
+        paused = 0;
+        redraw();
+      } else if (paused == 0) {
+        paused = 1;
+        redraw();
+      }
   }
 }
 

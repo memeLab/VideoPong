@@ -1,3 +1,17 @@
+Version 0.15 (16 May 2018)
+------------------------------
+Updated README.
+Update code to work on Processing 3.
+Removed code to use normal cams.
+Added controls to adjust the angle and the depth threshold min and max.
+Improved image recognition.
+Resized kinect image to fit screen.
+
+TODO:
+  Clean Code (delete rotateImage).
+  Add shell script to open the software on boot.
+
+
 Version 0.14 (27 October 2016)
 ------------------------------
 Updated README.
