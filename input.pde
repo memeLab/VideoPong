@@ -1,21 +1,25 @@
 void input() {
-  //cam.read();
-  //cam.play();
+
+  // Draw the raw image
+  image(kinect.getDepthImage(), 0, 0);
   
-  //kinect.enableRGB(true);
-  //PImage cam = kinect.getVideoImage();
-  //image(kinect.getVideoImage(),0,0);
+
+  // Threshold the depth image
+  int[] rawDepth = kinect.getRawDepth();
+  for (int i=0; i < rawDepth.length; i++) {
+    if (rawDepth[i] >= minDepth && rawDepth[i] <= maxDepth) {
+      depthImg.pixels[i] = color(127);
+    } else {
+      depthImg.pixels[i] = color(0);
+    }
+  }
   
-  kinect.enableDepth(true);
-  PImage cam = kinect.getDepthImage();
+  // Draw the thresholded image
+  depthImg.updatePixels();
+  image(depthImg, 0, 0, width, height);
   
-  //cam.loadPixels();
-  //cols = cam.width;
-  //rows = cam.height;
-  
-  cam = rotateImage(cam);
-  
-  image(cam, 0, 0); // Draw the webcam video onto the screen
+  //depthImg = rotateImage(depthImg);
+  kinect.enableMirror(true);
   
   float brightestValueRight = 0; // Brightness of the brightest video pixel on the right
   float brightestValueLeft = 0; // Brightness of the brightest video pixel on the left
@@ -25,12 +29,12 @@ void input() {
 
   int index = 0;
 
-  for (int y = 0; y < cam.height; y++) {
-    for (int x = 0; x < cam.width; x++) {
+  for (int y = 0; y < depthImg.height; y++) {
+    for (int x = 0; x < depthImg.width; x++) {
       
        // initiate detection of the first quarter of the screen
       if (x < width/4) {
-        color pixelValueLeft = cam.pixels[index]; // Get the color stored in the pixel
+        color pixelValueLeft = depthImg.pixels[index]; // Get the color stored in the pixel
         float pixelBrightnessLeft = brightness(pixelValueLeft); // Determine the brightness of the pixel
         if (pixelBrightnessLeft > brightestValueLeft) {
           brightestValueLeft = pixelBrightnessLeft;
@@ -40,7 +44,7 @@ void input() {
 
       // initiate detection of the last quarter of the screen
       if (x > (width/4)*3) { 
-        color pixelValueRight = cam.pixels[index]; // Get the color stored in the pixel
+        color pixelValueRight = depthImg.pixels[index]; // Get the color stored in the pixel
         float pixelBrightnessRight = brightness(pixelValueRight); // Determine the brightness of the pixel
         // If the pixel is brighter than any previous, then store it's brightness and location
         if (pixelBrightnessRight > brightestValueRight) {
