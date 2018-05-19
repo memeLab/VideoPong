@@ -1,5 +1,5 @@
 
-/* This is version 0.15 of VideoPong, made by VJ pixel (http://memelab.com.br) and Tiago Pimentel.
+/* This is version 0.16 of VideoPong, made by VJ pixel (http://memelab.com.br) and Tiago Pimentel.
 */
 
 // Kinect
@@ -18,10 +18,10 @@ int maxDepth = 700;
 // What is the kinect's angle
 float angle;
 
-// audio
+// audio 
 import ddf.minim.*;
 AudioSample rSound, lSound;
-Minim minim;
+Minim minim; 
 
 
 // Pong

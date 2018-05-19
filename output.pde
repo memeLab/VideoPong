@@ -1,6 +1,4 @@
 void output() {
-
-  image(depthImg, 0, 0, width, height);
   
   // The middle line or 'net'
   rectMode(CENTER);

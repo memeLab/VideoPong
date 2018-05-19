@@ -1,9 +1,12 @@
 void input() {
-
+    
   // Draw the raw image
   image(kinect.getDepthImage(), 0, 0);
+  //depthImg = kinect.getDepthImage();
+  //depthImg.resize(width, height);
+  //depthImg.updatePixels();
+  //image(depthImg, 0, 0);
   
-
   // Threshold the depth image
   int[] rawDepth = kinect.getRawDepth();
   for (int i=0; i < rawDepth.length; i++) {
@@ -16,7 +19,7 @@ void input() {
   
   // Draw the thresholded image
   depthImg.updatePixels();
-  image(depthImg, 0, 0, width, height);
+  image(depthImg, 0, 0);
   
   //depthImg = rotateImage(depthImg);
   kinect.enableMirror(true);
@@ -29,8 +32,8 @@ void input() {
 
   int index = 0;
 
-  for (int y = 0; y < depthImg.height; y++) {
-    for (int x = 0; x < depthImg.width; x++) {
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
       
        // initiate detection of the first quarter of the screen
       if (x < width/4) {
