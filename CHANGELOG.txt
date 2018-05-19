@@ -1,14 +1,20 @@
-Version 0.16 (19 May 2018)
+Version 0.17 (19 May 2018)
 ------------------------------
-Fixed: kinect image resizing - regression.
+Fix README link to OpenKinect.
+Cleaned CHANGELOG - removed TODO for old versions.
+Add key to make play/pause compatible with wireless presenter.
 
-TODO:
+TODO:  
+  Clean Code (delete rotateImage).  
   Resize kinect image to fit screen.
-  Add keys to make play/pause compatible with wireless presenter.
-  Clean Code (delete rotateImage).
   Fix the creation of executables.
   Add shell script to open the software on boot.
 
+
+Version 0.16 (19 May 2018)
+------------------------------
+Fixed: kinect image resizing - regression.
+  
 
 Version 0.15 (16 May 2018)
 ------------------------------
@@ -19,32 +25,15 @@ Added controls to adjust the angle and the depth threshold min and max.
 Improved image recognition.
 Resized kinect image to fit screen.
 
-TODO:
-  Clean Code (delete rotateImage).
-  Add shell script to open the software on boot.
-
 
 Version 0.14 (27 October 2016)
 ------------------------------
 Updated README.
-
-TODO:
-  Change Kinect library to Linux.
-  Clean Code.
-  Create different branches for: Kinect and camera.
-  Update code to work on Processing 3.
-  Make it easy to open in fullscreen.
-  Add shell script to open the software on boot.
   
 
 Version 0.13 (18 August 2012)
 ------------------------------
 Changed licence to GPL.
-
-TODO:
-  Change Kinect library to Linux.
-  Clean Code.
-  Create different branches for: Kinect and camera.
 
 
 Version 0.12
@@ -57,6 +46,4 @@ Modularized code in tabs.
 Invert cam (to mirror captured image).
 Improved input, changing the tracking columns to the first and last quarters of the image.
 Changed licence.
-   
-TODO:
-  Clean code.
+

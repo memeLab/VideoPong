@@ -148,7 +148,7 @@ void keyPressed() {
     maxDepth = constrain(maxDepth+10, minDepth, 2047);
   } else if (key =='x') {
     maxDepth = constrain(maxDepth-10, minDepth, 2047);
-  } else if (key == ' ' ) {
+  } else if ((key == '.') || (key == ' ')) {
       if (paused == 1) {
         paused = 0;
         redraw();

@@ -6,6 +6,6 @@ Based on the Pong code by [Alex Mesker](http://www.x37v.com), [Daniel Shiffman](
    
 This code is made with [Processing](http://processing.org) and is distributed under [GPL](http://www.gnu.org/copyleft/gpl.html).
 
-To run the software, you need to have the libraries [Minin](http://code.compartmental.net/minim/) and [Open Kinect for Processing] (https://github.com/shiffman/OpenKinect-for-Processing). You can install them using the Contribution Manager on Processing IDE.
+To run the software, you need to have the libraries [Minin](http://code.compartmental.net/minim/) and [Open Kinect for Processing](https://github.com/shiffman/OpenKinect-for-Processing). You can install them using the Contribution Manager on Processing IDE.
 
-On Linux, install libfreenect. On Debian based distribution, you can do this by commmand line: #sudo apt install libfreenect-bin
+On Linux, install libfreenect. On Debian based distributions, you can do this with the command: #sudo apt install libfreenect-bin
